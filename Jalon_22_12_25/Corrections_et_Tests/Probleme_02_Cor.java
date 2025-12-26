@@ -3,50 +3,64 @@ package Jalon_22_12_25.Corrections_et_Tests;
 import java.util.Scanner;
 
 public class Probleme_02_Cor {
+    public static void main(String[] args) {
+        
+    
      Scanner clavier = new Scanner(System.in);
         int compte = 3000;
         int retrait;
+        int decouvert=-500;
         boolean reponse = true;
+        
+        
 
-        System.out.println("Bonjour, vous avez " + compte + " Euros dans votre compte");
-
-        while (reponse) {
+        System.out.println ( "Bonjour, vous avez " + compte + " Euros dans votre compte");
+         
+        while (reponse && compte > decouvert) {
             System.out.println("Combien voulez-vous retirer ?");
 
             retrait = clavier.nextInt();
+            clavier.nextLine();
 
-            if (retrait >= compte - 500) {
-                System.out.println("Vous avez depasser le decouvert autorise");
-            } else if (retrait % 10 != 0) {
-                System.out.println("!!!ERREUR!!!\nVous pouvez retirer que par tranche de 10");
-            } else
-                compte -= retrait;
-
-            System.out.println("Il vous reste " + compte);
-            boolean reponse1=false;
-
-            while (reponse1=true) {
-                
-           
-
-            System.out.println("Voulez-vous retirer à nouveau ?");
-            reponse1 = clavier.nextBoolean();
-            if (reponse!=true||reponse1!=false) {System.out.println("Veuillez répondre par (true) ou (false) !"); reponse1=true;}
-            else{reponse1=false;}
-                
+            if (retrait % 10 != 0) {
+                System.out.println("!!!ERREUR!!!\nVous pouvez retirer que par tranche de 10");continue;
             }
-            reponse1=reponse;
-            if (reponse == false) {
-                System.out.println("Merci de votre visite,\nBonne journée, au revoir.");
+
+            if (compte -retrait <decouvert) {
+                System.out.println("Vous avez depasser le decouvert autorise");continue;
+            } 
+            compte -= retrait;
+            System.out.println("Il vous reste " + compte+" Euros");
+            if (compte == decouvert) {
+                System.out.println("Votre compte est à découvert maximum. Plus de retraits possibles.");
                 break;
-            }  else {
-                reponse = true;
             }
+            boolean question=false;
+            while (!question) {
+                
+                
+              System.out.println("Voulez-vous retirer à nouveau ?");               
+            String reponse1 = clavier.nextLine().trim().toLowerCase();
+           
+            
+            if (reponse1.equals("true")||reponse1.equals("oui")||reponse1.equals("o")) { reponse=true;question=true;}
 
-        
-
+            else if (reponse1.equals("false")||reponse1.equals("non")||reponse1.equals("n")) { reponse=false;question=true;System.out.println("Merci de votre visite,\nBonne journée, au revoir.");
+                
+                
+            }else System.out.println("Veuillez donner une réponse valide (oui) ou (non)");
+            
+            }
+        }if (compte == decouvert) {
+            System.out.println("Votre compte est vide (découvert maximum atteint).");
+            
+        }
         clavier.close();
+        }
+    
+        
     }
-}
 
+
+ 
     

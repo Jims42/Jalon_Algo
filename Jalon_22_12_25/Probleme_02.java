@@ -19,7 +19,7 @@ public class Probleme_02 {
 
         
 
-        if (retrait>=compte-500){System.out.println("Vous avez depasser le decouvert autorise");
+        if (retrait>=compte+500){System.out.println("Vous avez depasser le decouvert autorise");
             }else if (retrait %10!=0) { System.out.println("!!!ERREUR!!!\nVous pouvez retirer que par tranche de 10");
             }
             else compte-=retrait;
