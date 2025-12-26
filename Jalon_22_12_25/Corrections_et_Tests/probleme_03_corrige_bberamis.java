@@ -1,4 +1,4 @@
-package Jalon_22_12_25;
+package Jalon_22_12_25.Corrections_et_Tests;
 
 import java.util.Scanner;
 
