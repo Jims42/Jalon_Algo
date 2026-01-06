@@ -61,6 +61,7 @@ public class Probleme_02_Cor {
             System.out.println("Erreur de saisie");
             clavier.next();
             
+            
         }
         if (compte == decouvert) {
             System.out.println("Votre compte est vide (découvert maximum atteint).");
